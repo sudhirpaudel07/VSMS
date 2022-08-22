@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add New Product Details</h3>
+                </div>
+                <br>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form id="quickForm" novalidate="novalidate">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleInput1">Name:</label>
+                            <input type="name" name="name" class="form-control">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example2">Category:</label>
+                            <input type="text" id="form6Example2" class="form-control" />
+                        </div>
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example6">Price:</label>
+                            <input type="number" id="form6Example6" class="form-control" />
+                        </div>
+
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example6">Vendor:</label>
+                            <select class="form-control" id="form6Example6">
+                                <option>Select Vendor</option>
+                                <option>Vendor 1</option>
+                                <option>Vendor 2</option>
+                                <option>Vendor 3</option>
+                                <option>Vendor 4</option>
+                            </select>
+
+                        </div>
+
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example6">Quantity:</label>
+                            <input type="number" id="form6Example6" class="form-control" />
+                        </div>
+                      
+
+                  
+               
+                       <!-- Message input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example7">Additional Information:</label>
+                            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 100%;">Add
+                            Details</button>
+                </form>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+</div>
+
+{% endblock %}

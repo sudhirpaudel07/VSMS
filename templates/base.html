@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VSMS | Base</title>
+  <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -173,7 +174,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      {% comment %} <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -182,40 +183,128 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
           </div>
         </div>
-      </div> 
+      </div>  {% endcomment %}
        <!-- Sidebar Menu -->
        <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="/" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Third Party
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{% url 'form' %}" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Customer Details</p>
+                <a href="{% url 'add_customer' %}" class="nav-link ">
+                  <i class="fa fa-plus nav-icon"></i>
+                  <p>Add Customer </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="{% url 'customer_table' %}" class="nav-link ">
+                  <i class="fa fa-eye nav-icon"></i>
+                  <p> Customer Details</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/vendor" class="nav-link">
+                  <i class="fa fa-eye nav-icon"></i>
                   <p>Vendors</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ledgers</p>
+                <a href="/add_vendor" class="nav-link">
+                  <i class="fa fa-plus nav-icon"></i>
+                  <p>Add Vendor</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-open ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-archive"></i>
+              <p>
+                Products|Services
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+             
+              <li class="nav-item">
+                <a href="/product" class="nav-link">
+                  <i class="fa fa-eye nav-icon"></i>
+                  <p>Products</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/add_product" class="nav-link">
+                  <i class="fa fa-plus nav-icon"></i>
+                  <p>Add Product</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/service" class="nav-link">
+                  <i class="fa fa-eye nav-icon"></i>
+                  <p>Services</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/add_service" class="nav-link">
+                  <i class="fa fa-plus nav-icon"></i>
+                  <p>Add Service</p>
+                </a>
+              </li>
+        </ul>
+      </li>
+      <li class="nav-item menu-open ">
+        <a href="#" class="nav-link active">
+          <i class="nav-icon fas fa-archive"></i>
+          <p>
+            Sales|Purchase
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+         
+          <li class="nav-item">
+            <a href="/buy_product" class="nav-link">
+              <i class="fa fa-shopping-cart nav-icon"></i>
+              <p>Buy Product</p>
             </a>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a href="/sell_product" class="nav-link">
+              <i class="fa fa-plus nav-icon"></i>
+              <p>Sell Product</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/sell_services" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Sell Services</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/sales_list" class="nav-link">
+              <i class="fa fa-book nav-icon"></i>
+              <p>Sales List</p>
+            </a>
+          </li>
+         
+    </ul>
+  </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -281,5 +370,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script
+type="text/javascript"
+src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"
+></script>
+<script>
+  $(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>
+
+{% block js %}{% endblock js %}
 </body>
 </html>
